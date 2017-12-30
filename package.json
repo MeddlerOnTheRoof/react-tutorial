@@ -3,9 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "@progress/kendo-buttons-react-wrapper": "2017.3.1-beta.2",
+    "@progress/kendo-data-query": "^1.0.6",
+    "@progress/kendo-dateinputs-react-wrapper": "2017.3.1-beta.2",
+    "@progress/kendo-inputs-react-wrapper": "2017.3.1-beta.2",
+    "@progress/kendo-layout-react-wrapper": "2017.3.1-beta.2",
+    "@progress/kendo-popups-react-wrapper": "2017.3.1-beta.2",
+    "@progress/kendo-theme-default": "^2.37.0",
+    "@progress/kendo-ui": "~2017.2.822",
+    "@progress/kendo-window-react-wrapper": "2017.3.1-beta.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.2",
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",

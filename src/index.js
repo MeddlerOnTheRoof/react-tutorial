@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import '@progress/kendo-ui';
+import '@progress/kendo-theme-default/dist/all.css';
+import { Button } from '@progress/kendo-buttons-react-wrapper';
+
+/* todo:
+    - display the location (col, row) and player for each move
+    - go forward and backward in the move list and bold the currently selected game state
+    - rewrite the board to use two loops to make the squares instead of hardcoding them
+    - when someone wins, hightlight the three squares that caused the win
+*/
 
 function Square(props) {
     return (
@@ -95,7 +105,7 @@ class Game extends React.Component {
 
             return (
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <Button click={() => this.jumpTo(move)}>{desc}</Button>
                 </li>
             );
         });
