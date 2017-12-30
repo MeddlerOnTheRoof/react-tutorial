@@ -113,4 +113,10 @@ function calculateWinner(squares) {
       }
     }
     return null;
+
+    let allSquaresFilled = squares.every(square => {
+        return square;
+    });
+
+    return allSquaresFilled ? 'Draw' : null;
   }
