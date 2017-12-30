@@ -13,6 +13,7 @@ function Square(props) {
 class Board extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             squares: Array(9).fill(null),
             xIsNext: true,
@@ -21,13 +22,15 @@ class Board extends React.Component {
 
     handleClick(i) {
         const squares = this.state.squares.slice();
-        if (calculateWinner(squares) || squares[i]) {
-          return;
-        }
+
+        if (calculateWinner(squares) || squares[i])
+            return;
+
         squares[i] = this.state.xIsNext ? 'X' : 'O';
+
         this.setState({
-          squares: squares,
-          xIsNext: !this.state.xIsNext,
+            squares: squares,
+            xIsNext: !this.state.xIsNext,
         });
     }
 
@@ -42,12 +45,10 @@ class Board extends React.Component {
 
     render() {
         const winner = calculateWinner(this.state.squares);
-        let status;
-        if (winner) {
-          status = 'Winner: ' + winner;
-        } else {
-          status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-        }
+
+        let status = winner ?
+            'Winner: ' + winner :
+            'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
         return (
             <div>
@@ -88,8 +89,6 @@ class Game extends React.Component {
     }
 }
 
-// ========================================
-
 ReactDOM.render(
     <Game />,
     document.getElementById('root')
@@ -97,21 +96,21 @@ ReactDOM.render(
 
 function calculateWinner(squares) {
     const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
     ];
-    
+
     lines.forEach(line => {
         const [a, b, c] = line;
 
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-          return squares[a];
+            return squares[a];
         }
     });
 
@@ -120,4 +119,4 @@ function calculateWinner(squares) {
     });
 
     return allSquaresFilled ? 'Draw' : null;
-  }
+}
